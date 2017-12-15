@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SampleRetro</string>
+    <string name="get">GET</string>
+    <string name="post">POST</string>
+</resources>
