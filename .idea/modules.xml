@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SampleRetro.iml" filepath="$PROJECT_DIR$/SampleRetro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/RxRetro.iml" filepath="$PROJECT_DIR$/.idea/RxRetro.iml" />
+      <module fileurl="file://C:\Users\Intel\AndroidStudioProjects\RxRetro\SampleRetro.iml" filepath="C:\Users\Intel\AndroidStudioProjects\RxRetro\SampleRetro.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/rxretro/rxretro.iml" filepath="$PROJECT_DIR$/rxretro/rxretro.iml" />
     </modules>

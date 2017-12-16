@@ -33,5 +33,5 @@ allprojects {
 compile 'com.github.Periyanayagam:RxRetro:1.0'
 
 
-Any suggestions on improving this library is welcomed, any doubts or comments? @ perusudroid@gmail.com
+This is my first contribution to opensource.
 

@@ -19,6 +19,7 @@ public class MainActivity extends BaseActivity implements IResponseListener, Vie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        RXRetro.getInstance().retrofitEnque(ApiClient.getInterface().getData(), this, 1);
         bindViews();
         setAssets();
     }

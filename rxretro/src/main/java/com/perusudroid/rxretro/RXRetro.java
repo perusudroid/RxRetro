@@ -90,29 +90,29 @@ public class RXRetro {
                         }
 
                         switch (paramResponse.code()) {
-                            case Constants.httpcodes.STATUS_OK:
+                            case NetworkCodes.httpcodes.STATUS_OK:
                                 iResponseListener.onSuccess(str, requestId);
                                 break;
-                            case Constants.httpcodes.STATUS_CREATED:
+                            case NetworkCodes.httpcodes.STATUS_CREATED:
                                 iResponseListener.onSuccess(str, requestId);
                                 break;
-                            case Constants.httpcodes.STATUS_BAD_REQUEST:
-                                iResponseListener.serverError(getStringFromByte(getByteStream(paramResponse.errorBody())), requestId, Constants.httpcodes.STATUS_OK);
+                            case NetworkCodes.httpcodes.STATUS_BAD_REQUEST:
+                                iResponseListener.serverError(getStringFromByte(getByteStream(paramResponse.errorBody())), requestId, NetworkCodes.httpcodes.STATUS_BAD_REQUEST);
                                 break;
-                            case Constants.httpcodes.STATUS_UNAUTHORIZED:
-                                iResponseListener.serverError(getStringFromByte(getByteStream(paramResponse.errorBody())), requestId, Constants.httpcodes.STATUS_UNAUTHORIZED);
+                            case NetworkCodes.httpcodes.STATUS_UNAUTHORIZED:
+                                iResponseListener.serverError(getStringFromByte(getByteStream(paramResponse.errorBody())), requestId, NetworkCodes.httpcodes.STATUS_UNAUTHORIZED);
                                 break;
-                            case Constants.httpcodes.STATUS_FORBITTEN:
-                                iResponseListener.serverError(paramResponse.raw().message(), requestId, Constants.httpcodes.STATUS_FORBITTEN);
+                            case NetworkCodes.httpcodes.STATUS_FORBITTEN:
+                                iResponseListener.serverError(paramResponse.raw().message(), requestId, NetworkCodes.httpcodes.STATUS_FORBITTEN);
                                 break;
-                            case Constants.httpcodes.STATUS_NOT_FOUND:
-                                iResponseListener.serverError(paramResponse.raw().message(), requestId, Constants.httpcodes.STATUS_NOT_FOUND);
+                            case NetworkCodes.httpcodes.STATUS_NOT_FOUND:
+                                iResponseListener.serverError(paramResponse.raw().message(), requestId, NetworkCodes.httpcodes.STATUS_NOT_FOUND);
                                 break;
-                            case Constants.httpcodes.STATUS_SERVER_ERROR:
-                                iResponseListener.serverError(getStringFromByte(getByteStream(paramResponse.errorBody())), requestId, Constants.httpcodes.STATUS_SERVER_ERROR);
+                            case NetworkCodes.httpcodes.STATUS_SERVER_ERROR:
+                                iResponseListener.serverError(getStringFromByte(getByteStream(paramResponse.errorBody())), requestId, NetworkCodes.httpcodes.STATUS_SERVER_ERROR);
                                 break;
-                            case Constants.httpcodes.STATUS_NO_CONTENT:
-                                iResponseListener.serverError(getStringFromByte(getByteStream(paramResponse.errorBody())), requestId, Constants.httpcodes.STATUS_NO_CONTENT);
+                            case NetworkCodes.httpcodes.STATUS_NO_CONTENT:
+                                iResponseListener.serverError(getStringFromByte(getByteStream(paramResponse.errorBody())), requestId, NetworkCodes.httpcodes.STATUS_NO_CONTENT);
                                 break;
                         }
 
@@ -125,4 +125,5 @@ public class RXRetro {
     private InputStream getByteStream(ResponseBody paramResponse) {
         return paramResponse.byteStream();
     }
+
 }

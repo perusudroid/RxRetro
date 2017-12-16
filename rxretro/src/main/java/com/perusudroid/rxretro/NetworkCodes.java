@@ -4,7 +4,7 @@ package com.perusudroid.rxretro;
  * Created by perusu on 13/12/17.
  */
 
-public class Constants {
+public class NetworkCodes {
 
     interface httpcodes{
         int STATUS_OK = 200;
