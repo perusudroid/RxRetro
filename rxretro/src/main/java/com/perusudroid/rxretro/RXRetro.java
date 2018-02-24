@@ -8,10 +8,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import okhttp3.ResponseBody;
+import retrofit2.HttpException;
 import retrofit2.Response;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.exceptions.OnErrorFailedException;
 import rx.schedulers.Schedulers;
 
 /**
@@ -65,15 +67,32 @@ public class RXRetro {
                     @Override
                     public void onCompleted() {
                         if (iResponseListener != null) {
-                            iResponseListener.onSuccess("Completed", 0);
+                            iResponseListener.onSuccess("Completed", requestId);
                         }
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        if (iResponseListener != null) {
-                            iResponseListener.onFailure(e, 0);
+                        try {
+
+                            if (e instanceof OnErrorFailedException) {
+                                Log.e(TAG, "onError: instanceof OnErrorFailedException");
+                            } else if (e instanceof HttpException) {
+                                Log.e(TAG, "onError: instanceof HttpException");
+                                ResponseBody responseBody = ((HttpException) e).response().errorBody();
+                                if (responseBody != null) {
+                                    String errorStr = getStringFromByte(getByteStream(responseBody));
+                                    Log.e(TAG, "onError: error msg" + errorStr);
+                                }
+                            } else {
+                                if (iResponseListener != null) {
+                                    iResponseListener.onFailure(e, requestId);
+                                }
+                            }
+                        } catch (Exception ex) {
+                            Log.e(TAG, "onError: "+ e.getLocalizedMessage() );
                         }
+
                     }
 
                     @Override
