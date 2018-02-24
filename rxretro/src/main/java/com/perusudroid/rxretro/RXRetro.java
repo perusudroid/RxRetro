@@ -67,7 +67,7 @@ public class RXRetro {
                     @Override
                     public void onCompleted() {
                         if (iResponseListener != null) {
-                            iResponseListener.onSuccess("Completed", requestId);
+                          //  iResponseListener.onSuccess("Completed", requestId);
                         }
                     }
 
